@@ -1,0 +1,10 @@
+<div color="primary" class="container">
+  <div class="container__app">{{ "appName" | translate }}</div>
+  <div class="container__menu">
+    <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+    <mat-menu #menu="matMenu">
+      <button mat-menu-item>Item 1</button>
+      <button mat-menu-item>Item 2</button>
+    </mat-menu>
+  </div>
+</div>

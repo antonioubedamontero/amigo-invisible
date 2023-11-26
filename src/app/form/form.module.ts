@@ -10,23 +10,29 @@ import {
   TranslateModule,
   TranslateParser,
 } from '@ngx-translate/core';
-import { HttpLoaderFactory } from '../app.module';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const COMPONENTS = [FormComponent];
+
+export function createTranslateChildFormLoader(http: HttpClient) {
+  return new TranslateHttpLoader(http, './assets/i18n/form', '.json');
+}
 
 @NgModule({
   declarations: [...COMPONENTS],
   imports: [
     CommonModule,
+    HttpClientModule,
     FormRoutingModule,
     SharedModule,
     TranslateModule.forChild({
       loader: {
         provide: TranslateLoader,
-        useFactory: HttpLoaderFactory,
+        useFactory: createTranslateChildFormLoader,
         deps: [HttpClient],
       },
+      isolate: true,
     }),
   ],
 })

@@ -1,3 +1,4 @@
 {
-  "language": "Español"
+  "appName": "Amigo invisible",
+  "languages": [{ "en": "Inglés" }, { "es": "Español" }]
 }
