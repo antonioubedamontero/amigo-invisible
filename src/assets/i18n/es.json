@@ -1,4 +1,27 @@
 {
-  "appName": "Amigo invisible",
-  "languages": [{ "en": "Inglés" }, { "es": "Español" }]
+  "header": {
+    "appName": "Amigo invisible",
+    "languages": { "en": "Inglés", "es": "Español" },
+    "selectLanguage": "Idioma"
+  },
+  "form": {
+    "title": "Selección de participantes",
+    "selectText": "Introduzca las personas que van a participar en el sorteo",
+    "buttons": {
+      "add": "Añadir participante",
+      "remove": "Eliminar participante",
+      "generate": "Iniciar sorteo"
+    },
+    "personField": {
+      "placeHolder": "Nombre y apellidos",
+      "error": "La longitud debe ser de al menos dos caracteres"
+    },
+    "raffle": {
+      "error": "Se ha producido un error al realizar el sorteo. Inténtelo de nuevo"
+    },
+    "dummy": "Este es un formulario"
+  },
+  "result": {
+    "dummy": "Estos son los resultados"
+  }
 }

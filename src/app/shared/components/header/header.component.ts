@@ -1,4 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Subscription } from 'rxjs';
+import {
+  HeaderLanguageService,
+  language$,
+} from '../../services/header-language.service';
 import { TranslateService } from '@ngx-translate/core';
 
 @Component({
@@ -6,15 +11,50 @@ import { TranslateService } from '@ngx-translate/core';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss'],
 })
-export class HeaderComponent implements OnInit {
-  constructor(public translateService: TranslateService) {}
+export class HeaderComponent implements OnInit, OnDestroy {
+  // Header Page component
+  i18n: any;
+
+  // Subscriptions
+  suscriptions: Subscription[] = [];
+
+  constructor(
+    public headerLanguageService: HeaderLanguageService,
+    private translateService: TranslateService
+  ) {}
 
   ngOnInit(): void {
-    this.getTranslations();
+    // Get current language and translations when change
+    const subscription = language$.subscribe((language) => {
+      this.getTranslations();
+    });
+
+    this.suscriptions.push(subscription);
+  }
+
+  ngOnDestroy(): void {
+    // Destroy subscriptions
+    this.suscriptions.forEach((subscription) => subscription.unsubscribe());
   }
 
   getTranslations() {
-    const translate = this.translateService.instant('appName');
-    console.log('** res', translate);
+    // get i18n for header component
+    const suscription = this.translateService
+      .get('header')
+      .subscribe((i18n) => {
+        this.i18n = i18n;
+      });
+
+    this.suscriptions.push(suscription);
+  }
+
+  changeLanguage(language: string): void {
+    // Change to an specific language
+    this.headerLanguageService.changeLanguage(language);
+  }
+
+  get languageKeys(): string[] {
+    // Get language keys (ex: es, en...)
+    return Object.keys(this.i18n.languages);
   }
 }
