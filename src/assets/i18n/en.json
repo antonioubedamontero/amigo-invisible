@@ -1,3 +1,27 @@
 {
-  "language": "English"
+  "header": {
+    "appName": "Invisible friend",
+    "selectLanguage": "Language",
+    "languages": { "en": "English", "es": "Spanish" }
+  },
+  "form": {
+    "title": "Participant selection",
+    "selectText": "Enter the people who will participate in the draw",
+    "buttons": {
+      "add": "Add participant",
+      "remove": "Delete participant",
+      "generate": "Start giveaway"
+    },
+    "personField": {
+      "placeHolder": "Name and surname",
+      "error": "Length must be at least two characters"
+    },
+    "raffle": {
+      "error": "An error occurred while performing the draw. Try again"
+    },
+    "dummy": "This is a form"
+  },
+  "result": {
+    "dummy": "This is are the results"
+  }
 }
