@@ -1,8 +1,19 @@
 .container {
-  background-color: #539bca;
+  background-color: #98b5df;
   display: flex;
   flex-direction: row;
   gap: 1rem;
   justify-content: center;
   align-items: center;
+  border-bottom: 3px solid lightblue;
+
+  &__app,
+  &__menu * {
+    color: whitesmoke;
+    text-shadow: 0 0 1px black;
+  }
+}
+
+.title {
+  font-size: 1.1rem;
 }

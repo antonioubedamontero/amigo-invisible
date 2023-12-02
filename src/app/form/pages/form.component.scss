@@ -1,1 +1,10 @@
-
+.form-container {
+  height: 100%;
+  padding: 0 2rem;
+  &__content {
+    height: 100%;
+    padding-block: 1rem;
+    background-color: whitesmoke;
+    text-align: center;
+  }
+}
