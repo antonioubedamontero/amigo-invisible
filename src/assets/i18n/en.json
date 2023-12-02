@@ -6,7 +6,7 @@
   },
   "form": {
     "title": "Participant selection",
-    "selectText": "Enter the people who will participate in the draw",
+    "selectText": "Enter the people who will participate in the invisible friend draw:",
     "buttons": {
       "add": "Add participant",
       "remove": "Delete participant",
@@ -14,12 +14,16 @@
     },
     "personField": {
       "placeHolder": "Name and surname",
-      "error": "Length must be at least two characters"
+      "required": "You must enter a name",
+      "repeatedName": "Name already entered",
+      "minlength": "Name too short",
+      "nonRegisteredError": "Unregistered error"
     },
     "raffle": {
       "error": "An error occurred while performing the draw. Try again"
     },
-    "dummy": "This is a form"
+    "sendButton": "Generate giveaway",
+    "loading": "Loading results..."
   },
   "result": {
     "dummy": "This is are the results"

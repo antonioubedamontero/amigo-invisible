@@ -1,10 +1,60 @@
 .form-container {
   height: 100%;
-  padding: 0 2rem;
+  padding: 0 0.5rem;
+
+  font-size: 1.2rem;
+
   &__content {
     height: 100%;
     padding-block: 1rem;
-    background-color: whitesmoke;
     text-align: center;
   }
+
+  &__card {
+    width: max-content;
+    min-width: 45vw;
+    max-width: 90%;
+    margin: auto;
+    margin-bottom: 2rem;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Greater than sm */
+  .form-container {
+    padding: 0 2rem;
+
+    &__content {
+      background-color: whitesmoke;
+    }
+  }
+}
+
+.person {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 1rem;
+
+  &__delete-icon-container {
+    height: 3.4rem;
+
+    .delete-icon {
+      margin: auto;
+    }
+  }
+}
+
+.button {
+  margin-block: 2rem;
+}
+
+.progess-spinner {
+  margin-bottom: 2rem;
+  display: flex;
+  gap: 1rem;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }
