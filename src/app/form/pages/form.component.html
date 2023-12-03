@@ -1,5 +1,79 @@
 <div class="form-container" *ngIf="i18n">
-  <mat-card>
-    <mat-card-content> Form: {{ i18n.dummy }} </mat-card-content>
-  </mat-card>
+  <div class="form-container__content">
+    <div class="progess-spinner" *ngIf="loading">
+      <mat-spinner></mat-spinner>
+      {{ i18n.loading }}
+    </div>
+
+    <h1>{{ i18n.title }}</h1>
+
+    <p>{{ i18n.selectText }}</p>
+
+    <button
+      mat-raised-button
+      color="primary"
+      class="button"
+      (click)="addParticipant()"
+      [disabled]="hasBlankPersons"
+    >
+      <!-- Add new Participant -->
+      <mat-icon class="material-icons-outlined">add</mat-icon>
+      {{ i18n.buttons.add }}
+    </button>
+
+    <form
+      class="form-container__card"
+      [formGroup]="raffleForm"
+      *ngIf="hasParticipants"
+    >
+      <mat-card>
+        <mat-card-content formArrayName="participants">
+          <div
+            class="person"
+            *ngFor="let participant of participants.controls; let ind = index"
+          >
+            <mat-form-field appearance="outline">
+              <input
+                matInput
+                [placeholder]="i18n.personField.placeHolder"
+                [formControlName]="ind"
+              />
+              <mat-error>
+                {{ getControlErrors(ind) }}
+              </mat-error>
+              <mat-icon matSuffix class="material-icons-outlined"
+                >emoji_emotions</mat-icon
+              >
+            </mat-form-field>
+
+            <button
+              mat-raised-button
+              color="warn"
+              class="person__delete-icon-container"
+              [matTooltip]="i18n.buttons.remove"
+              (click)="removeParticipant(ind)"
+            >
+              <!-- Delete Participant -->
+              <mat-icon class="material-icon-outlined delete-icon"
+                >delete_forever</mat-icon
+              >
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </form>
+
+    <div>
+      <button
+        mat-raised-button
+        color="primary"
+        [disabled]="!hasParticipants || raffleForm.invalid"
+        (click)="generateRaffle()"
+      >
+        <!-- Generate raffle only enable when form is valid and there are participants -->
+        <mat-icon>redeem</mat-icon>
+        {{ i18n.sendButton }}
+      </button>
+    </div>
+  </div>
 </div>

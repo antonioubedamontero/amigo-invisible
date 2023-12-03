@@ -1,5 +1,7 @@
-<div class="container" *ngIf="i18n">
-  <span class="container__app">{{ i18n.appName }}</span>
+<header class="container" *ngIf="i18n">
+  <span class="container__app">
+    <strong class="title">{{ i18n.appName }}</strong>
+  </span>
   <div class="container__menu">
     <button mat-button [matMenuTriggerFor]="menu">
       {{ i18n.selectLanguage }}
@@ -10,8 +12,8 @@
         *ngFor="let languageKey of languageKeys"
         (click)="changeLanguage(languageKey)"
       >
-        {{ i18n.languages[languageKey] }}
+        <span>{{ i18n.languages[languageKey] }}</span>
       </button>
     </mat-menu>
   </div>
-</div>
+</header>
