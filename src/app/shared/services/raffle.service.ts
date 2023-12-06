@@ -1,6 +1,8 @@
 import { Injectable } from '@angular/core';
 import { RaffleResultItem } from '../models';
 
+const MAX_INTENTS = 10;
+
 @Injectable({
   providedIn: 'root',
 })
@@ -12,7 +14,19 @@ export class RaffleService {
   constructor() {}
 
   generateRaffle(participants: string[]): void {
-    // Generate raffle and return raffle results
+    /* Repeate try to generate raffle for ten intents if one participant can only give herself */
+    let intents = 0;
+    while (true) {
+      intents++;
+      this.tryToGenerateRaffle(participants);
+      if (!this.hasParticipantsWithoutMatch() || intents === MAX_INTENTS) {
+        break;
+      }
+    }
+  }
+
+  tryToGenerateRaffle(participants: string[]): void {
+    // Try to generate raffle
     this.participants = participants;
     const pendingParticipants = [...this.participants];
 
@@ -49,5 +63,12 @@ export class RaffleService {
     return participantsLength === 1
       ? participants[0]
       : participants[Math.floor(Math.random() * participantsLength)];
+  }
+
+  private hasParticipantsWithoutMatch(): boolean {
+    // Returns true if there is a participant without raffle match
+    return !!this.raffleResult.find(
+      (participant) => participant.to.length === 0
+    );
   }
 }

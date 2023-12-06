@@ -80,7 +80,7 @@
         mat-raised-button
         color="primary"
         class="button"
-        [disabled]="!hasParticipants || raffleForm.invalid"
+        [disabled]="participants.length < 2 || raffleForm.invalid"
         (click)="generateRaffle()"
       >
         <!-- Generate raffle only enable when form is valid and there are participants -->
