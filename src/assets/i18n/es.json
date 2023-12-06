@@ -26,6 +26,19 @@
     "loading": "Cargando resultados..."
   },
   "result": {
-    "dummy": "Estos son los resultados"
+    "title": "Resultado del sorteo del Amigo Invisible",
+    "infoText": "Consulta la siguiente tabla para ver a quién te toca regalar en el sorteo del Amigo Invisible:",
+    "imgAlt": "imagen de regalos",
+    "columns": {
+      "from": "De",
+      "to": "Para"
+    },
+    "greetings": "¡Que disfrutes de tu regalo! 🎉",
+    "greetingsWithoutImoji": "¡Que disfrutes de tu regalo!",
+    "buttons": {
+      "print": "Imprimir",
+      "generatePdf": "Generar Pdf"
+    },
+    "raffleDownloadDocumentName": "sorteo-amigo-invisible.pdf"
   }
 }

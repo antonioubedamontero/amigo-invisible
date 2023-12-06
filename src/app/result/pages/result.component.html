@@ -1,5 +1,47 @@
-<div class="result-container" *ngIf="i18n">
-  <mat-card>
-    <mat-card-content> Result </mat-card-content>
-  </mat-card>
+<div class="result-container" *ngIf="i18n" id="htmlRaffleData">
+  <div class="content">
+    <h1>{{ i18n.title }}</h1>
+    <img
+      class="content__img-logo"
+      src="assets/img/gift-img.jpg"
+      [alt]="i18n.imgAlt"
+    />
+    <p class="content__info-text">{{ i18n.infoText }}</p>
+
+    <div class="content__gift-table">
+      <mat-table [dataSource]="dataSource" id="raffleResult">
+        <!-- From Column -->
+        <ng-container matColumnDef="from">
+          <mat-header-cell *matHeaderCellDef>
+            {{ i18n.columns.from }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.from }} </mat-cell>
+        </ng-container>
+
+        <!-- To Column -->
+        <ng-container matColumnDef="to">
+          <mat-header-cell *matHeaderCellDef>
+            {{ i18n.columns.to }}
+          </mat-header-cell>
+          <mat-cell *matCellDef="let element"> {{ element.to }} </mat-cell>
+        </ng-container>
+
+        <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+        <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+      </mat-table>
+    </div>
+
+    <p class="content__greetings">{{ i18n.greetings }}</p>
+
+    <div class="content__buttons">
+      <button mat-raised-button color="primary" (click)="print()">
+        <mat-icon class="material-icons-outlined"> print </mat-icon>
+        {{ i18n.buttons.print }}
+      </button>
+      <button mat-raised-button color="primary" (click)="generatePdf()">
+        <mat-icon class="material-icons-outlined"> description </mat-icon>
+        {{ i18n.buttons.generatePdf }}
+      </button>
+    </div>
+  </div>
 </div>
