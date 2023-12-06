@@ -8,6 +8,7 @@ import autoTable from 'jspdf-autotable';
 import { RaffleResultItem } from '../../shared/models';
 import { language$ } from '../../shared/services/header-language.service';
 import { RaffleService } from 'src/app/shared/services/raffle.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-result',
@@ -26,7 +27,8 @@ export class ResultComponent implements OnInit, OnDestroy {
 
   constructor(
     private translateService: TranslateService,
-    private raffleService: RaffleService
+    private raffleService: RaffleService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -81,6 +83,11 @@ export class ResultComponent implements OnInit, OnDestroy {
     );
 
     doc.save(this.i18n.raffleDownloadDocumentName);
+  }
+
+  goToHomePage(): void {
+    // Navigate to home page
+    this.router.navigate(['/']);
   }
 
   getTranslations() {

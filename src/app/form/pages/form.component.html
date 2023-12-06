@@ -9,17 +9,29 @@
 
     <p>{{ i18n.selectText }}</p>
 
-    <button
-      mat-raised-button
-      color="primary"
-      class="button"
-      (click)="addParticipant()"
-      [disabled]="hasBlankPersons"
-    >
-      <!-- Add new Participant -->
-      <mat-icon class="material-icons-outlined">add</mat-icon>
-      {{ i18n.buttons.add }}
-    </button>
+    <div class="buttons">
+      <button
+        mat-raised-button
+        color="primary"
+        (click)="addParticipant()"
+        [disabled]="hasBlankPersons"
+      >
+        <!-- Add new Participant -->
+        <mat-icon class="material-icons-outlined">add</mat-icon>
+        {{ i18n.buttons.add }}
+      </button>
+
+      <button
+        mat-raised-button
+        color="warn"
+        (click)="cleanParticipants()"
+        [disabled]="participants.length === 0"
+      >
+        <!-- clean all participants -->
+        <mat-icon class="material-icons-outlined">delete_forever</mat-icon>
+        {{ i18n.buttons.deleteAll }}
+      </button>
+    </div>
 
     <form
       class="form-container__card"
@@ -67,6 +79,7 @@
       <button
         mat-raised-button
         color="primary"
+        class="button"
         [disabled]="!hasParticipants || raffleForm.invalid"
         (click)="generateRaffle()"
       >

@@ -10,7 +10,8 @@
     "buttons": {
       "add": "Añadir participante",
       "remove": "Eliminar participante",
-      "generate": "Iniciar sorteo"
+      "generate": "Iniciar sorteo",
+      "deleteAll": "Eliminar todos"
     },
     "personField": {
       "placeHolder": "Nombre y apellidos",
@@ -37,7 +38,8 @@
     "greetingsWithoutImoji": "¡Que disfrutes de tu regalo!",
     "buttons": {
       "print": "Imprimir",
-      "generatePdf": "Generar Pdf"
+      "generatePdf": "Generar Pdf",
+      "goBack": "Inicio"
     },
     "raffleDownloadDocumentName": "sorteo-amigo-invisible.pdf"
   }

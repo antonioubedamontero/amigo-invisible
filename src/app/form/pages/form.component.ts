@@ -72,6 +72,11 @@ export class FormComponent implements OnInit, OnDestroy {
     this.participants.removeAt(index);
   }
 
+  cleanParticipants(): void {
+    // Remove all participants
+    this.participants.clear();
+  }
+
   generateRaffle(): void {
     // Generates raffle
     this.loading = true;

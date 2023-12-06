@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
+import { resultGuard } from './shared/guards/result.guard';
 
 const routes: Routes = [
   {
@@ -9,6 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'sorteo',
+    canActivate: [resultGuard],
     loadChildren: () =>
       import('./result/result.module').then((m) => m.ResultModule),
   },

@@ -10,7 +10,8 @@
     "buttons": {
       "add": "Add participant",
       "remove": "Delete participant",
-      "generate": "Start giveaway"
+      "generate": "Start giveaway",
+      "deleteAll": "Delete all"
     },
     "personField": {
       "placeHolder": "Name and surname",
@@ -37,7 +38,8 @@
     "greetingsWithoutImoji": "Enjoy your gift!",
     "buttons": {
       "print": "Print",
-      "generatePdf": "Generate Pdf"
+      "generatePdf": "Generate Pdf",
+      "goBack": "Home page"
     },
     "raffleDownloadDocumentName": "secret-friend-raffle.pdf"
   }
