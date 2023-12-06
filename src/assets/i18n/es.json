@@ -10,7 +10,8 @@
     "buttons": {
       "add": "Añadir participante",
       "remove": "Eliminar participante",
-      "generate": "Iniciar sorteo"
+      "generate": "Iniciar sorteo",
+      "deleteAll": "Eliminar todos"
     },
     "personField": {
       "placeHolder": "Nombre y apellidos",
@@ -26,6 +27,20 @@
     "loading": "Cargando resultados..."
   },
   "result": {
-    "dummy": "Estos son los resultados"
+    "title": "Resultado del sorteo del Amigo Invisible",
+    "infoText": "Consulta la siguiente tabla para ver a quién te toca regalar en el sorteo del Amigo Invisible:",
+    "imgAlt": "imagen de regalos",
+    "columns": {
+      "from": "De",
+      "to": "Para"
+    },
+    "greetings": "¡Que disfrutes de tu regalo! 🎉",
+    "greetingsWithoutImoji": "¡Que disfrutes de tu regalo!",
+    "buttons": {
+      "print": "Imprimir",
+      "generatePdf": "Generar Pdf",
+      "goBack": "Inicio"
+    },
+    "raffleDownloadDocumentName": "sorteo-amigo-invisible.pdf"
   }
 }

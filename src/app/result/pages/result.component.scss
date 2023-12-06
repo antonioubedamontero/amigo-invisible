@@ -1,0 +1,49 @@
+.result-container {
+  padding: 0 0.5rem;
+
+  font-size: 1.2rem;
+}
+
+.content {
+  padding-block: 1rem;
+  text-align: center;
+
+  &__img-logo {
+    margin-bottom: 2rem;
+    object-fit: cover;
+    width: 80vw;
+    max-height: 25rem;
+  }
+
+  &__gift-table {
+    margin: 2rem auto;
+    width: 80vw;
+  }
+
+  &__info-text,
+  &__greetings {
+    width: 80vw;
+    margin: auto;
+    text-align: start;
+  }
+
+  &__buttons {
+    margin-block: 2rem;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1rem;
+  }
+}
+
+@media (min-width: 576px) {
+  /* Greater than sm */
+  .result-container {
+    padding: 0 2rem;
+  }
+
+  .content {
+    background-color: whitesmoke;
+  }
+}
