@@ -17,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "docs/",
+            "outputPath": "docs/amigo-invisible",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": ["zone.js"],
@@ -32,7 +32,6 @@
           },
           "configurations": {
             "production": {
-              "baseHref": "/amigo-invisible/",
               "budgets": [
                 {
                   "type": "initial",
@@ -89,6 +88,9 @@
             ],
             "scripts": []
           }
+        },
+        "deploy": {
+          "builder": "angular-cli-ghpages:deploy"
         }
       }
     }
