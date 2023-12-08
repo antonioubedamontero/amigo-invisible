@@ -39,8 +39,11 @@
     "buttons": {
       "print": "Print",
       "generatePdf": "Generate Pdf",
+      "repeatRaffle": "Repeat raffle",
       "goBack": "Home page"
     },
-    "raffleDownloadDocumentName": "secret-friend-raffle.pdf"
+    "raffleDownloadDocumentName": "secret-friend-raffle.pdf",
+    "copyright": "© Antonio Úbeda Montero",
+    "photo": "Photo author George Dolgikh"
   }
 }

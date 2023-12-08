@@ -39,8 +39,11 @@
     "buttons": {
       "print": "Imprimir",
       "generatePdf": "Generar Pdf",
+      "repeatRaffle": "Repetir sorteo",
       "goBack": "Inicio"
     },
-    "raffleDownloadDocumentName": "sorteo-amigo-invisible.pdf"
+    "raffleDownloadDocumentName": "sorteo-amigo-invisible.pdf",
+    "copyright": "© Antonio Úbeda Montero",
+    "photo": "Autor de la foto George Dolgikh"
   }
 }
