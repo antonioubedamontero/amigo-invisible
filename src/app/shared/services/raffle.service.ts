@@ -1,19 +1,19 @@
 import { Injectable } from '@angular/core';
-import { RaffleResultItem } from '../models';
+import { Participant, RaffleResultItem } from '../models';
 
-const MAX_INTENTS = 10;
+const MAX_INTENTS = 100; // Max raffle intents if one participant haven't anyone to give to
 
 @Injectable({
   providedIn: 'root',
 })
 export class RaffleService {
   // service to generate raffle
-  participants: string[] = [];
+  participants: Participant[] = [];
   raffleResult: RaffleResultItem[] = [];
 
   constructor() {}
 
-  loadParticipants(participants: string[]): void {
+  loadParticipants(participants: Participant[]): void {
     // Load raffle participants
     this.participants = participants;
   }
@@ -30,30 +30,35 @@ export class RaffleService {
     }
   }
 
-  tryToGenerateRaffle(participants: string[]): void {
+  tryToGenerateRaffle(participants: Participant[]): void {
     // Try to generate raffle
-    this.participants = participants;
-    const pendingParticipants = [...this.participants];
+    let pendingParticipants = [...participants];
 
-    this.raffleResult = this.participants.map((participant: string) => {
+    this.raffleResult = this.participants.map((participant: Participant) => {
       const from = participant;
-      // Remove self
-      const availableParticipants = pendingParticipants.filter(
-        (currentParticipant: string) => currentParticipant !== participant
+
+      // Remove participant incompatibilities
+      const availableParticipants: Participant[] = pendingParticipants.filter(
+        (pendingParticipant: Participant) =>
+          !participant.exclusions.includes(pendingParticipant.name)
       );
 
       if (availableParticipants.length === 0) {
-        return { from, to: '' };
+        return { from: from.name, to: '' };
       }
 
       const assignedParticipant = this.getRandomParticipant(
-        availableParticipants
+        availableParticipants.map(
+          (availableParticipant: Participant) => availableParticipant.name
+        )
       );
 
       const to = assignedParticipant;
-      pendingParticipants.splice(pendingParticipants.indexOf(to), 1);
+      pendingParticipants = pendingParticipants.filter(
+        (pendingParticipant: Participant) => pendingParticipant.name !== to
+      );
 
-      return { from, to };
+      return { from: from.name, to };
     });
   }
 
@@ -62,12 +67,12 @@ export class RaffleService {
     return this.raffleResult;
   }
 
-  private getRandomParticipant(participants: string[]): string {
+  private getRandomParticipant(participantsNames: string[]): string {
     // Get random participant
-    const participantsLength = participants.length;
+    const participantsLength = participantsNames.length;
     return participantsLength === 1
-      ? participants[0]
-      : participants[Math.floor(Math.random() * participantsLength)];
+      ? participantsNames[0]
+      : participantsNames[Math.floor(Math.random() * participantsLength)];
   }
 
   private hasParticipantsWithoutMatch(): boolean {

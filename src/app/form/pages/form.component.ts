@@ -11,7 +11,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms';
-import { RaffleResultItem } from '../../shared/models';
+import { Participant } from '../../shared/models';
 import { Router } from '@angular/router';
 import { RaffleService } from '../../shared/services/raffle.service';
 
@@ -81,7 +81,11 @@ export class FormComponent implements OnInit, OnDestroy {
     // Generates raffle
     this.loading = true;
 
-    const participants = this.participants.value;
+    // TODO: In first aproach we will fill exclusions only with themselves
+    const participants: Participant[] = (
+      this.participants.value as string[]
+    ).map((name: string) => ({ name, exclusions: [name] }));
+
     this.raffleService.loadParticipants(participants);
     this.raffleService.generateRaffle();
 

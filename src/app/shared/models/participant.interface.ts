@@ -1,4 +1,5 @@
 export interface Participant {
-  id: string;
+  // Participants and incompatibilities with other participants
   name: string;
+  exclusions: string[];
 }
