@@ -37,10 +37,10 @@ export class ResultComponent implements OnInit, OnDestroy {
       this.getTranslations();
     });
 
-    // Load data source from data
-    this.loadTableDataSource();
-
     this.suscriptions.push(subscription);
+
+    // Load data source from raffle service results
+    this.loadTableDataSource();
   }
 
   ngOnDestroy(): void {
@@ -70,8 +70,12 @@ export class ResultComponent implements OnInit, OnDestroy {
     img.src = 'assets/img/gift-img.jpg';
     doc.addImage(img, 'png', 14, 30, 180, 80);
 
+    const translatedColumns = this.displayedColumns.map((columnName: string) =>
+      this.translateService.instant(this.i18n.columns[columnName])
+    );
+
     autoTable(doc, {
-      head: [this.displayedColumns],
+      head: [translatedColumns],
       body: this.dataSource.map(({ from, to }) => [from, to]),
       startY: 120,
     });
@@ -82,12 +86,21 @@ export class ResultComponent implements OnInit, OnDestroy {
       (doc as any).lastAutoTable.finalY + 10
     );
 
+    doc.text(this.i18n.copyright, 14, (doc as any).lastAutoTable.finalY + 30);
+
     doc.save(this.i18n.raffleDownloadDocumentName);
   }
 
   goToHomePage(): void {
     // Navigate to home page
+    this.raffleService.loadParticipants([]);
     this.router.navigate(['/']);
+  }
+
+  repeatRaffle(): void {
+    // Repeat raffle and reload data source table
+    this.raffleService.generateRaffle();
+    this.loadTableDataSource();
   }
 
   getTranslations() {

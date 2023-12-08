@@ -13,12 +13,17 @@ export class RaffleService {
 
   constructor() {}
 
-  generateRaffle(participants: string[]): void {
+  loadParticipants(participants: string[]): void {
+    // Load raffle participants
+    this.participants = participants;
+  }
+
+  generateRaffle(): void {
     /* Repeate try to generate raffle for ten intents if one participant can only give herself */
     let intents = 0;
     while (true) {
       intents++;
-      this.tryToGenerateRaffle(participants);
+      this.tryToGenerateRaffle(this.participants);
       if (!this.hasParticipantsWithoutMatch() || intents === MAX_INTENTS) {
         break;
       }
