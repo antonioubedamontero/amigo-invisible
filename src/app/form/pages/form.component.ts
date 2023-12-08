@@ -82,7 +82,8 @@ export class FormComponent implements OnInit, OnDestroy {
     this.loading = true;
 
     const participants = this.participants.value;
-    this.raffleService.generateRaffle(participants);
+    this.raffleService.loadParticipants(participants);
+    this.raffleService.generateRaffle();
 
     this.loading = false;
     this.router.navigate(['sorteo']);

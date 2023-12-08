@@ -9,10 +9,16 @@
   text-align: center;
 
   &__img-logo {
-    margin-bottom: 2rem;
     object-fit: cover;
     width: 80vw;
     max-height: 25rem;
+  }
+
+  &__img-license {
+    width: 80vw;
+    display: inline-block;
+    margin: auto;
+    text-align: start;
   }
 
   &__gift-table {
@@ -23,17 +29,12 @@
   &__info-text,
   &__greetings {
     width: 80vw;
-    margin: auto;
+    margin: 2rem auto;
     text-align: start;
   }
 
   &__buttons {
     margin-block: 2rem;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 1rem;
   }
 }
 
@@ -45,5 +46,26 @@
 
   .content {
     background-color: whitesmoke;
+
+    &__buttons {
+      display: flex;
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
   }
+}
+
+.button-group {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.copyright,
+.button-group {
+  margin-block: 1rem;
 }
