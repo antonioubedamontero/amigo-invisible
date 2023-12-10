@@ -40,37 +40,15 @@
     >
       <mat-card>
         <mat-card-content formArrayName="participants">
-          <div
-            class="person"
+          <!-- *ngFor="let participant of participants.controls; let ind = index" -->
+          <app-participant
             *ngFor="let participant of participants.controls; let ind = index"
+            [i18n]="i18n"
+            [control]="participant"
+            [participantIndex]="ind"
+            (removeParticipantEmmision)="deleteParticipantFromPosition(ind)"
           >
-            <mat-form-field appearance="outline">
-              <input
-                matInput
-                [placeholder]="i18n.personField.placeHolder"
-                [formControlName]="ind"
-              />
-              <mat-error>
-                {{ getControlErrors(ind) }}
-              </mat-error>
-              <mat-icon matSuffix class="material-icons-outlined"
-                >emoji_emotions</mat-icon
-              >
-            </mat-form-field>
-
-            <button
-              mat-raised-button
-              color="warn"
-              class="person__delete-icon-container"
-              [matTooltip]="i18n.buttons.remove"
-              (click)="removeParticipant(ind)"
-            >
-              <!-- Delete Participant -->
-              <mat-icon class="material-icon-outlined delete-icon"
-                >delete_forever</mat-icon
-              >
-            </button>
-          </div>
+          </app-participant>
         </mat-card-content>
       </mat-card>
     </form>

@@ -1,0 +1,30 @@
+<div class="person">
+  <mat-form-field appearance="outline">
+    <!-- Input name -->
+    <input
+      matInput
+      [placeholder]="i18n.personField.placeHolder"
+      [formControl]="control"
+    />
+    <mat-error>
+      {{ getControlErrors(control) }}
+    </mat-error>
+    <mat-icon matSuffix class="material-icons-outlined"
+      >emoji_emotions</mat-icon
+    >
+  </mat-form-field>
+
+  <!-- Delete person button -->
+  <button
+    mat-raised-button
+    color="warn"
+    class="person__delete-icon-container"
+    [matTooltip]="i18n.buttons.remove"
+    (click)="removeParticipant(participantIndex)"
+  >
+    <!-- Delete Participant -->
+    <mat-icon class="material-icon-outlined delete-icon"
+      >delete_forever</mat-icon
+    >
+  </button>
+</div>

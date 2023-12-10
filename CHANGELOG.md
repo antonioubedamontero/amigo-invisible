@@ -2,7 +2,7 @@
 
 All notable changes to this project will be documented in this file.
 
-## [1.2.0] - 2023-12-09
+## [1.2.0] - 2023-12-10
 
 Added functionalitity that lets fill incompatibilities between participants.
 

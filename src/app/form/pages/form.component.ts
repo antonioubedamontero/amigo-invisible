@@ -67,8 +67,8 @@ export class FormComponent implements OnInit, OnDestroy {
     );
   }
 
-  removeParticipant(index: number): void {
-    // Remove participant at position indes
+  deleteParticipantFromPosition(index: number): void {
+    // Delete participant at position
     this.participants.removeAt(index);
   }
 
@@ -114,22 +114,6 @@ export class FormComponent implements OnInit, OnDestroy {
     });
 
     this.suscriptions.push(suscription);
-  }
-
-  getControlErrors(index: number): string {
-    // Get associated control error to personField
-    const control = this.participants.at(index);
-
-    if (!control.errors) {
-      return '';
-    }
-
-    const errorKey = Object.keys(control.errors)[0];
-
-    return (
-      this.i18n.personField[errorKey] ??
-      this.i18n.personField['nonRegisteredError']
-    );
   }
 
   /* Custom validators */

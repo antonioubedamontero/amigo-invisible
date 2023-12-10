@@ -5,8 +5,9 @@ import { FormRoutingModule } from './form-routing.module';
 import { SharedModule } from '../shared/shared.module';
 
 import { FormComponent } from './pages/form.component';
+import { ParticipantComponent } from './components/participant/participant.component';
 
-const COMPONENTS = [FormComponent];
+const COMPONENTS = [FormComponent, ParticipantComponent];
 
 @NgModule({
   declarations: [...COMPONENTS],

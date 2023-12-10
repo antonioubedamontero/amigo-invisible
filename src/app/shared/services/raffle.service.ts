@@ -40,6 +40,7 @@ export class RaffleService {
       // Remove participant incompatibilities
       const availableParticipants: Participant[] = pendingParticipants.filter(
         (pendingParticipant: Participant) =>
+          participant.name !== pendingParticipant.name &&
           !participant.exclusions.includes(pendingParticipant.name)
       );
 

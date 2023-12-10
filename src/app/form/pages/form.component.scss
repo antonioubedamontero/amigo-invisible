@@ -28,22 +28,6 @@
   }
 }
 
-.person {
-  display: flex;
-  flex-direction: row;
-  justify-content: center;
-  align-items: flex-start;
-  gap: 1rem;
-
-  &__delete-icon-container {
-    height: 3.4rem;
-
-    .delete-icon {
-      margin: auto;
-    }
-  }
-}
-
 .buttons {
   margin-block: 2rem;
   display: flex;
