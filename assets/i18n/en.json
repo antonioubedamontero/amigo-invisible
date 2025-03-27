@@ -1,0 +1,49 @@
+{
+  "header": {
+    "appName": "Invisible friend",
+    "selectLanguage": "Language",
+    "languages": { "en": "English", "es": "Spanish" }
+  },
+  "form": {
+    "title": "Participant selection",
+    "selectText": "Enter the people who will participate in the invisible friend draw:",
+    "buttons": {
+      "add": "Add participant",
+      "remove": "Delete participant",
+      "generate": "Start giveaway",
+      "deleteAll": "Delete all"
+    },
+    "personField": {
+      "placeHolder": "Name and surname",
+      "required": "You must enter a name",
+      "repeatedName": "Name already entered",
+      "minlength": "Name too short",
+      "nonRegisteredError": "Unregistered error"
+    },
+    "raffle": {
+      "error": "An error occurred while performing the draw. Try again"
+    },
+    "sendButton": "Generate giveaway",
+    "loading": "Loading results..."
+  },
+  "result": {
+    "title": "Invisible friend giveaway results",
+    "infoText": "Check the following table to see who you get to give in the Secret Santa draw:",
+    "imgAlt": "gift Image",
+    "columns": {
+      "from": "From",
+      "to": "To"
+    },
+    "greetings": "Enjoy your gift! 🎉",
+    "greetingsWithoutImoji": "Enjoy your gift!",
+    "buttons": {
+      "print": "Print",
+      "generatePdf": "Generate Pdf",
+      "repeatRaffle": "Repeat raffle",
+      "goBack": "Home page"
+    },
+    "raffleDownloadDocumentName": "secret-friend-raffle.pdf",
+    "copyright": "© Antonio Úbeda Montero",
+    "photo": "Photo author George Dolgikh"
+  }
+}
